@@ -144,6 +144,16 @@ else ifeq ($(TARGET_USES_YCRCB_VENUS_CAMERA_PREVIEW),true)
     SOONG_CONFIG_qtidisplay_target_uses_ycrcb_venus_camera_preview := true
 endif
 
+# Add rfs to soong config namespaces
+SOONG_CONFIG_NAMESPACES += rfs
+
+# Add supported variables to rfs config
+SOONG_CONFIG_rfs += \
+    mpss_firmware_symlink_target
+
+# Set default values for rfs config
+SOONG_CONFIG_rfs_mpss_firmware_symlink_target ?= firmware_mnt
+
 # Add rmnetctl to soong config namespaces
 SOONG_CONFIG_NAMESPACES += rmnetctl
 

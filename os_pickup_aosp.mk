@@ -3,9 +3,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# Legacy CAF devices still want AOSP keymaster HAL.
-ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include $(LOCAL_PATH)/keymaster/Android.mk
-else
+ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
 include $(call first-makefiles-under,$(LOCAL_PATH))
 endif

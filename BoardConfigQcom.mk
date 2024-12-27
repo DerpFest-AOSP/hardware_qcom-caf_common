@@ -64,6 +64,7 @@ SOONG_CONFIG_qtidisplay += \
     var1 \
     var2 \
     var3 \
+    wide_color \
     target_no_raw10_custom_format \
     target_uses_unaligned_nv21_zsl \
     target_uses_unaligned_ycrcb \
@@ -84,6 +85,7 @@ SOONG_CONFIG_qtidisplay_shift_vertical ?= 0
 SOONG_CONFIG_qtidisplay_var1 ?= false
 SOONG_CONFIG_qtidisplay_var2 ?= false
 SOONG_CONFIG_qtidisplay_var3 ?= false
+SOONG_CONFIG_qtidisplay_wide_color ?= false
 SOONG_CONFIG_qtidisplay_target_no_raw10_custom_format ?= false
 SOONG_CONFIG_qtidisplay_target_uses_unaligned_nv21_zsl ?= false
 SOONG_CONFIG_qtidisplay_target_uses_unaligned_ycrcb ?= false
@@ -97,6 +99,10 @@ endif
 
 ifneq ($(TARGET_DISPLAY_SHIFT_VERTICAL),)
     SOONG_CONFIG_qtidisplay_shift_vertical := $(TARGET_DISPLAY_SHIFT_VERTICAL)
+endif
+
+ifeq ($(TARGET_HAS_WIDE_COLOR_DISPLAY), true)
+    SOONG_CONFIG_qtidisplay_wide_color := true
 endif
 
 ifeq ($(TARGET_USES_FOD_ZPOS),true)

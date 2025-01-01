@@ -66,6 +66,8 @@ SOONG_CONFIG_qtidisplay += \
     var3 \
     wide_color \
     target_no_raw10_custom_format \
+    target_uses_aligned_ycbcr_height \
+    target_uses_aligned_ycrcb_height \
     target_uses_unaligned_nv21_zsl \
     target_uses_unaligned_ycrcb \
     target_uses_ycrcb_camera_encode \
@@ -87,6 +89,8 @@ SOONG_CONFIG_qtidisplay_var2 ?= false
 SOONG_CONFIG_qtidisplay_var3 ?= false
 SOONG_CONFIG_qtidisplay_wide_color ?= false
 SOONG_CONFIG_qtidisplay_target_no_raw10_custom_format ?= false
+SOONG_CONFIG_qtidisplay_target_uses_aligned_ycbcr_height ?= false
+SOONG_CONFIG_qtidisplay_target_uses_aligned_ycrcb_height ?= false
 SOONG_CONFIG_qtidisplay_target_uses_unaligned_nv21_zsl ?= false
 SOONG_CONFIG_qtidisplay_target_uses_unaligned_ycrcb ?= false
 SOONG_CONFIG_qtidisplay_target_uses_ycrcb_camera_encode ?= false
@@ -112,6 +116,14 @@ endif
 # For libgrallocutils features
 ifeq ($(TARGET_NO_RAW10_CUSTOM_FORMAT),true)
     SOONG_CONFIG_qtidisplay_target_no_raw10_custom_format := true
+endif
+
+ifeq ($(TARGET_USES_ALIGNED_YCBCR_HEIGHT),true)
+    SOONG_CONFIG_qtidisplay_target_uses_aligned_ycbcr_height := true
+endif
+
+ifeq ($(TARGET_USES_ALIGNED_YCRCB_HEIGHT),true)
+    SOONG_CONFIG_qtidisplay_target_uses_aligned_ycrcb_height := true
 endif
 
 ifeq ($(TARGET_USES_UNALIGNED_NV21_ZSL),true)

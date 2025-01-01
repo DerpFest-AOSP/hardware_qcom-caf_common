@@ -151,8 +151,10 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 # Allow building audio encoders
 TARGET_USES_QCOM_MM_AUDIO := true
 
-# Enable color metadata
-TARGET_USES_COLOR_METADATA := true
+# Enable color metadata on UM platforms that support it
+ifneq ($(filter msm8937 msm8953 msm8996,$(TARGET_BOARD_PLATFORM)),)
+    TARGET_USES_COLOR_METADATA := true
+endif
 
 # Enable DRM PP driver on UM platforms that support it
 ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY) $(UM_5_4_FAMILY) $(UM_5_10_FAMILY) $(UM_5_15_FAMILY),$(TARGET_BOARD_PLATFORM)),)

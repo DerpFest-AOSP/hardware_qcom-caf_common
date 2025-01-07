@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2025 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.qtitelephony.compat">
+
+    <protected-broadcast android:name="org.codeaurora.intent.action.RADIO_POWER_STATE" />
+    <protected-broadcast android:name="org.codeaurora.intent.action.ESSENTIAL_RECORDS_LOADED" />
+</manifest>
